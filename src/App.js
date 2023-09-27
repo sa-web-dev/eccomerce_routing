@@ -1,25 +1,42 @@
-import logo from './logo.svg';
 import './App.css';
+import { Route,Routes } from 'react-router-dom';
+import DigiNav from './components/DigNav';
+import DigiFooter from './components/DigFooter';
+import AboutUs from './components/AboutUs';
+import Home from './components/Home';
+import Products from './components/Products';
+import ContactUs from './components/ContactUs';
+import PageNotFound from './components/PageNotFound';
+
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    
+      <div>
+  
+  
+        <DigiNav/>
+
+        <Routes>
+            <Route path='/' element={<Home/>}/>
+            <Route path="/aboutus" element={<AboutUs/>}/>
+            <Route path="/products" element={<Products/>}/>
+            <Route path="/contactus/" element={<ContactUs/>}/>
+            <Route path="*" element={<PageNotFound/>}/>
+
+
+
+
+        </Routes>
+  
+  
+        <DigiFooter/>
+
+      </div>
+    );
+  }
+  
 
 export default App;
